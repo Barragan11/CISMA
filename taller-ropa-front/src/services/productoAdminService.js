@@ -3,7 +3,16 @@ import API_URL from "./api";
 const obtenerToken = () => localStorage.getItem("token");
 
 const manejarRespuesta = async (respuesta, mensajeError) => {
-  const datos = await respuesta.json();
+  const texto = await respuesta.text();
+
+  let datos;
+
+  try {
+    datos = texto ? JSON.parse(texto) : {};
+  } catch (error) {
+    console.log("Respuesta no JSON del backend:", texto);
+    throw new Error("El backend no regresó JSON. Revisa los logs de Render.");
+  }
 
   if (!respuesta.ok) {
     throw new Error(datos.mensaje || mensajeError);

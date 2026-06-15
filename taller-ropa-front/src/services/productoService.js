@@ -1,6 +1,6 @@
 import API_URL from "./api";
 
-const API_BASE = "http://localhost:3000";
+const API_BASE = API_URL.replace("/api", "");
 
 const obtenerRutaImagen = (imagen) => {
   if (!imagen) return "";
