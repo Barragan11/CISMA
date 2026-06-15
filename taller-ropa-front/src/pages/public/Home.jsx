@@ -81,10 +81,7 @@ function Home() {
           <div className="product-grid">
             {productos.slice(0, 8).map((producto) => (
               <article className="public-product-card" key={producto.id}>
-                <img
-                  src={obtenerUrlImagen(producto.imagen)}
-                  alt={producto.nombre}
-                />
+                <img src={obtenerUrlImagen(producto.imagen)} alt={producto.nombre} />
 
                 <div>
                   <span>{producto.categoria}</span>
