@@ -1,32 +1,40 @@
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
+
+const uploadPath = path.resolve(__dirname, "../../uploads");
+
+const crearCarpetaUploads = () => {
+  if (!fs.existsSync(uploadPath)) {
+    fs.mkdirSync(uploadPath, { recursive: true });
+  }
+};
+
+crearCarpetaUploads();
+
+console.log("Carpeta uploads configurada en:", uploadPath);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/");
+    crearCarpetaUploads();
+    cb(null, uploadPath);
   },
 
   filename: (req, file, cb) => {
     const extension = path.extname(file.originalname);
-    const nombreArchivo = Date.now() + "-" + Math.round(Math.random() * 1e9) + extension;
+    const nombreBase = path
+      .basename(file.originalname, extension)
+      .replace(/\s+/g, "-")
+      .replace(/[^a-zA-Z0-9-_]/g, "");
+
+    const nombreArchivo = `${Date.now()}-${nombreBase}${extension}`;
 
     cb(null, nombreArchivo);
   },
 });
 
-const fileFilter = (req, file, cb) => {
-  const tiposPermitidos = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
-
-  if (tiposPermitidos.includes(file.mimetype)) {
-    cb(null, true);
-  } else {
-    cb(new Error("Solo se permiten imágenes JPG, PNG o WEBP"), false);
-  }
-};
-
 const upload = multer({
   storage,
-  fileFilter,
 });
 
 module.exports = upload;
