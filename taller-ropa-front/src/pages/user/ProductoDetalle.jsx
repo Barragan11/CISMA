@@ -49,8 +49,7 @@ function ProductoDetalle() {
         </Link>
 
         <div className="product-detail-card">
-            <img src={obtenerUrlImagen(producto.imagen)} alt={producto.nombre} />
-
+          <img src={obtenerUrlImagen(producto.imagen)} alt={producto.nombre} />
           <div className="product-detail-info">
             <span>{producto.categoria}</span>
             <h1>{producto.nombre}</h1>

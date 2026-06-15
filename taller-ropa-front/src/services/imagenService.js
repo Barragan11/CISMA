@@ -13,9 +13,5 @@ export const obtenerUrlImagen = (imagen) => {
     return `${BACKEND_URL}${imagen}`;
   }
 
-  if (imagen.startsWith("/productos/")) {
-    return imagen;
-  }
-
   return `${BACKEND_URL}/uploads/${imagen}`;
 };

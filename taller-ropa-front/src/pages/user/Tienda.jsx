@@ -73,7 +73,6 @@ function Tienda() {
           {productosFiltrados.map((producto) => (
             <article className="shop-card" key={producto.id}>
               <img src={obtenerUrlImagen(producto.imagen)} alt={producto.nombre} />
-
               <div className="shop-card-body">
                 <span>{producto.categoria}</span>
 

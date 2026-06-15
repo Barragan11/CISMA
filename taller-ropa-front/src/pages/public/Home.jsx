@@ -10,7 +10,7 @@ function Home() {
     <main className="public-home">
       <nav className="public-navbar">
         <div className="navbar-brand">
-          <img src={obtenerUrlImagen("/logo-cisma.png")} alt="Logo CISMA" />
+          <img src="/logo-cisma.png" alt="Logo CISMA" />
 
           <div>
             <h2>CISMA</h2>
@@ -81,7 +81,10 @@ function Home() {
           <div className="product-grid">
             {productos.slice(0, 8).map((producto) => (
               <article className="public-product-card" key={producto.id}>
-                <img src={producto.imagen} alt={producto.nombre} />
+                <img
+                  src={obtenerUrlImagen(producto.imagen)}
+                  alt={producto.nombre}
+                />
 
                 <div>
                   <span>{producto.categoria}</span>
