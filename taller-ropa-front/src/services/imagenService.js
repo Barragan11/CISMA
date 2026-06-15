@@ -9,9 +9,15 @@ export const obtenerUrlImagen = (imagen) => {
     return imagen;
   }
 
-  if (imagen.startsWith("/uploads/")) {
-    return `${BACKEND_URL}${imagen}`;
+  const rutaLimpia = imagen.replace(/^\/+/, "");
+
+  if (rutaLimpia.startsWith("uploads/")) {
+    return `${BACKEND_URL}/${rutaLimpia}`;
   }
 
-  return `${BACKEND_URL}/uploads/${imagen}`;
+  if (rutaLimpia.startsWith("productos/")) {
+    return `/${rutaLimpia}`;
+  }
+
+  return `${BACKEND_URL}/uploads/${rutaLimpia}`;
 };
