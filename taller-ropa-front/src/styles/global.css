@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f3f6fb;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.loading-text {
+  color: #1677e8;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.error-text {
+  color: #b42318;
+  font-weight: bold;
+  background: #ffe9e9;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+

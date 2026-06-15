@@ -1,0 +1,287 @@
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-title h1 {
+  color: #102235;
+  font-size: 30px;
+}
+
+.dashboard-title p {
+  color: #6b7280;
+  margin-top: 5px;
+}
+
+.primary-action {
+  background: #1677e8;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary-action:hover {
+  background: #0d63c9;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.summary-card {
+  background: white;
+  border: 1px solid #e5ebf2;
+  border-radius: 20px;
+  padding: 22px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(15, 38, 65, 0.06);
+}
+
+.summary-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: #e8f2ff;
+  color: #1677e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-card p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.summary-card h2 {
+  color: #102235;
+  font-size: 27px;
+  margin: 3px 0;
+}
+
+.summary-card span {
+  color: #8b96a3;
+  font-size: 13px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  gap: 20px;
+}
+
+.dashboard-panel {
+  background: white;
+  border: 1px solid #e5ebf2;
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(15, 38, 65, 0.05);
+}
+
+.big-panel {
+  min-height: 360px;
+}
+
+.panel-header h2,
+.side-card-title h2 {
+  color: #102235;
+  font-size: 20px;
+}
+
+.panel-header p {
+  color: #6b7280;
+  margin-top: 5px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 22px;
+}
+
+.admin-table th {
+  text-align: left;
+  color: #6b7280;
+  font-size: 14px;
+  padding: 14px;
+  border-bottom: 1px solid #e5ebf2;
+}
+
+.admin-table td {
+  padding: 15px 14px;
+  color: #263747;
+  border-bottom: 1px solid #eef2f7;
+  font-size: 14px;
+}
+
+.status {
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.en-proceso {
+  background: #fff7df;
+  color: #a36a00;
+}
+
+.status.pendiente {
+  background: #ffe9e9;
+  color: #b42318;
+}
+
+.status.terminado {
+  background: #e7f8ef;
+  color: #1b7f45;
+}
+
+.dashboard-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.side-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1677e8;
+  margin-bottom: 18px;
+}
+
+.dashboard-panel h3 {
+  color: #102235;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.dashboard-panel p {
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.warning-panel ul {
+  padding-left: 20px;
+  color: #6b7280;
+  line-height: 2;
+}
+
+@media (max-width: 1100px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .admin-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.summary-card small {
+  display: inline-block;
+  margin-top: 7px;
+  color: #1677e8;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 20px;
+}
+
+.chart-box {
+  height: 280px;
+  margin-top: 22px;
+}
+
+.pie-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pie-labels {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.pie-labels span {
+  background: #f3f8ff;
+  color: #263747;
+  border: 1px solid #d8e9ff;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.activity-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.activity-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border-bottom: 1px solid #eef2f7;
+  padding-bottom: 12px;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.activity-item svg {
+  color: #1b7f45;
+  margin-top: 3px;
+}
+
+.activity-item p {
+  font-size: 14px;
+  color: #5f6b7a;
+}
+
+@media (max-width: 1100px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
