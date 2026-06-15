@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { obtenerUrlImagen } from "../../services/imagenService";
 import {
   obtenerProductosAdmin,
   crearProducto,
@@ -130,13 +131,7 @@ function Productos() {
     }
   };
 
-  const obtenerImagen = (imagen) => {
-    if (!imagen) return "";
-    if (imagen.startsWith("http")) return imagen;
-    if (imagen.startsWith("/productos/")) return imagen;
 
-    return `http://localhost:3000/uploads/${imagen}`;
-  };
 
   return (
     <div className="admin-page">
@@ -214,7 +209,7 @@ function Productos() {
             </p>
 
             <img
-              src={obtenerImagen(formulario.imagenActual)}
+              src={obtenerUrlImagen(formulario.imagenActual)}
               alt="Imagen actual"
               style={{
                 width: "90px",
@@ -249,7 +244,7 @@ function Productos() {
                   <td>
                     {producto.imagen ? (
                       <img
-                        src={obtenerImagen(producto.imagen)}
+                        src={obtenerUrlImagen(producto.imagen)}
                         alt={producto.nombre}
                         style={{
                           width: "70px",

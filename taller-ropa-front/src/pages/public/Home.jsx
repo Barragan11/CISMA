@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useProductos from "../../hooks/useProductos";
+import { obtenerUrlImagen } from "../../services/imagenService";
 import "./Home.css";
 
 function Home() {
@@ -9,7 +10,7 @@ function Home() {
     <main className="public-home">
       <nav className="public-navbar">
         <div className="navbar-brand">
-          <img src="/logo-cisma.png" alt="Logo CISMA" />
+          <img src={obtenerUrlImagen("/logo-cisma.png")} alt="Logo CISMA" />
 
           <div>
             <h2>CISMA</h2>

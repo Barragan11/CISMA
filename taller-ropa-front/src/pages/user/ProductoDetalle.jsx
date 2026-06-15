@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ShoppingCart } from "lucide-react";
 import useProductos from "../../hooks/useProductos";
 import { useCarrito } from "../../context/CarritoContext";
+import { obtenerUrlImagen } from "../../services/imagenService";
 import "./ProductoDetalle.css";
 
 function ProductoDetalle() {
@@ -48,7 +49,7 @@ function ProductoDetalle() {
         </Link>
 
         <div className="product-detail-card">
-          <img src={producto.imagen} alt={producto.nombre} />
+            <img src={obtenerUrlImagen(producto.imagen)} alt={producto.nombre} />
 
           <div className="product-detail-info">
             <span>{producto.categoria}</span>

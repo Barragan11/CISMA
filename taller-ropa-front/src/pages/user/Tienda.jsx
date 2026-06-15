@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ShoppingCart, LogOut } from "lucide-react";
 import useProductos from "../../hooks/useProductos";
 import { useAuth } from "../../context/AuthContext";
+import { obtenerUrlImagen } from "../../services/imagenService";
 import "./Tienda.css";
 
 function Tienda() {
@@ -71,7 +72,7 @@ function Tienda() {
         <section className="shop-grid">
           {productosFiltrados.map((producto) => (
             <article className="shop-card" key={producto.id}>
-              <img src={producto.imagen} alt={producto.nombre} />
+              <img src={obtenerUrlImagen(producto.imagen)} alt={producto.nombre} />
 
               <div className="shop-card-body">
                 <span>{producto.categoria}</span>
