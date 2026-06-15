@@ -16,13 +16,13 @@ const reporteRoutes = require("./routes/reporteRoutes");
 const entregaRoutes = require("./routes/entregaRoutes");
 const costosRoutes = require("./routes/costosRoutes");
 
-
-
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+
 app.get("/", (req, res) => {
   res.json({
     mensaje: "API del sistema taller de ropa funcionando",
@@ -42,4 +42,5 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/reportes", reporteRoutes);
 app.use("/api/entregas", entregaRoutes);
 app.use("/api/costos-ganancia", costosRoutes);
+
 module.exports = app;
