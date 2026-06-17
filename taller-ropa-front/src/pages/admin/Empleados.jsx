@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { confirmarEliminar } from "../../utils/alerts";
 import toast from "react-hot-toast";
 import {
@@ -16,6 +16,10 @@ function Empleados() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarFiltros, setMostrarFiltros] = useState(false);
 
+  const inputBusquedaRef = useRef(null);
+
+  const [textoBusqueda, setTextoBusqueda] = useState("");
+
   const [filtros, setFiltros] = useState({
     busqueda: "",
     puesto: "",
@@ -31,6 +35,17 @@ function Empleados() {
   useEffect(() => {
     cargarEmpleados();
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFiltros((filtrosActuales) => ({
+        ...filtrosActuales,
+        busqueda: textoBusqueda,
+      }));
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [textoBusqueda]);
 
   const cargarEmpleados = async () => {
     try {
@@ -62,7 +77,18 @@ function Empleados() {
     });
   };
 
+  const buscarConUseRef = () => {
+    const valorBusqueda = inputBusquedaRef.current.value;
+    setTextoBusqueda(valorBusqueda);
+  };
+
   const limpiarFiltros = () => {
+    setTextoBusqueda("");
+
+    if (inputBusquedaRef.current) {
+      inputBusquedaRef.current.value = "";
+    }
+
     setFiltros({
       busqueda: "",
       puesto: "",
@@ -222,10 +248,11 @@ function Empleados() {
         <section className="page-card">
           <form className="admin-form-grid">
             <input
+              ref={inputBusquedaRef}
               name="busqueda"
               placeholder="Buscar por nombre o teléfono"
-              value={filtros.busqueda}
-              onChange={cambiarFiltro}
+              defaultValue={textoBusqueda}
+              onKeyUp={buscarConUseRef}
             />
 
             <select
